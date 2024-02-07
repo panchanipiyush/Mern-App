@@ -11,13 +11,13 @@ export const Home = () =>{
               <h1>Welcome to our MERN App</h1>
               <p>
                 Are you ready to take your business to the next level with
-                cutting-edge IT solutions? Look no further! At our Technical Team,
+                cutting-edge IT solutions? Look no further! At our Developer Team,
                 we specialize in providing innovative IT services and solutions
                 tailored to meet your unique needs.
               </p>
               <div className="btn btn-group">
                 <a href="/contact">
-                  <button className="btn">connect now</button>
+                  <button className="btn secondary-btn">connect now</button>
                 </a>
                 <a href="/services">
                   <button className="btn secondary-btn">learn more</button>
@@ -28,9 +28,9 @@ export const Home = () =>{
             {/* hero images  */}
             <div className="hero-image">
               <img
-                src="/images/home.png"
+                src="/images/mern.png"
                 alt="coding together"
-                width="400"
+                width="500"
                 height="500"
               />
             </div>
@@ -40,27 +40,7 @@ export const Home = () =>{
 
       {/* 2nd section  */}
       <Analytics />
-    {/* <section className="section-analytics">
-        <div className="container grid grid-four-cols">
-            <div className="div1">
-                <h1>50+0</h1>
-                <p>Registred Companies</p>
-            </div>
-            <div className="div1">
-                <h2>100,00+</h2>
-                <p>Happ Clients</p>
-            </div>
-            <div className="div1">
-                <h2>500+</h2>
-                <p>Well Known Developers</p>
-            </div>
-            <div className="div1">
-                <h2>24/7</h2>
-                <p>services</p>
-            </div>
 
-        </div>
-    </section> */}
       {/* 3rd section  */}
       <section className="section-hero">
         <div className="container grid grid-two-cols">
@@ -85,7 +65,7 @@ export const Home = () =>{
             </p>
             <div className="btn btn-group">
               <a href="/contact">
-                <button className="btn">connect now</button>
+                <button className="btn secondary-btn">connect now</button>
               </a>
               <a href="/services">
                 <button className="btn secondary-btn">learn more</button>

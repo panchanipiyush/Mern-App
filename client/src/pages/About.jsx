@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { Analytics } from "../components/Analytics";
-
+import { useAuth } from "../store/auth";
 export const About = () =>{
+  const {user}= useAuth();
     return (
         <>
           <main>
@@ -9,7 +10,7 @@ export const About = () =>{
           <div className="container grid grid-two-cols">
             <div className="hero-content">
               {/* <p>We care to cure your Health</p> */}
-
+              <h2>Welcome, {user ? ` ${user.username} to our website` :  `to our website`}</h2>
               <h1>Why Choose Us? </h1>
               <p>
                 Expertise: Our team consists of experienced IT professionals who
@@ -36,7 +37,7 @@ export const About = () =>{
               </p>
               <div className="btn btn-group">
                 <NavLink to="/contact">
-                  <button className="btn "> Connect Now</button>
+                  <button className="btn secondary-btn"> Connect Now</button>
                 </NavLink>
                 <button className="btn secondary-btn">learn more</button>
               </div>

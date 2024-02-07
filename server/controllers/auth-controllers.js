@@ -14,7 +14,7 @@ const register = async (req, res) => {
         // const userExist = await User.findOne({ email: email })
         const userExist = await User.findOne({ email })
         if (userExist) {
-            return res.status(400).json({ msg: "email alredy exist" })
+            return res.status(400).json({ message: "email alredy exist" })
         }
         const userCreated = await User.create({ username, email, phone, password })
 
@@ -34,7 +34,7 @@ const login = async (req, res) => {
         }
         // const user = await bcrypt.compare(password, userExist.password)
         const user = await userExist.comparePassword(password)
-        
+
         if (user) {
             res.status(200).send({ msg: "login successful", token: await userExist.generateToken(), userId: userExist._id.toString() })
         } else {
@@ -47,4 +47,16 @@ const login = async (req, res) => {
 }
 
 
-module.exports = { home, register, login }
+// to send user data User Logic
+const user = async (req, res) => {
+    try {
+        const userData = req.user;
+        return res.status(200).json({ userData })
+        // res.status(200).json({msg:"hi user"})
+    } catch (error) {
+        console.log(`error from the user route ${error}`);
+    }
+}
+
+
+module.exports = { home, register, login, user }

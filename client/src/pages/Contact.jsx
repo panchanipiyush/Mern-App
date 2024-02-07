@@ -1,12 +1,26 @@
 import { useState } from "react";
+import { useAuth } from "../store/auth";
 
+
+const defualtContactFormData = {
+  username: "",
+  email:"",
+  message:"",
+}
 export const Contact = () => {
-  const [contact, setContact] = useState({
-    username: "",
-    email: "",
-    message: "",
-  });
+  const [contact, setContact] = useState(defualtContactFormData);
 
+  const [userData, setUserData] = useState(true);
+  const { user } = useAuth();
+
+  if (userData && user) {
+    setContact({
+      username: user.username,
+      email: user.email,
+      message: "",
+    });
+    setUserData(false)
+  }
   // lets tackle our handleInput
   const handleInput = (e) => {
     const name = e.target.name;
@@ -19,13 +33,28 @@ export const Contact = () => {
   };
 
   // handle fomr getFormSubmissionInfo
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:9000/api/form/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body : JSON.stringify(contact)
+      });
 
-    console.log(contact);
+      if(response.ok){
+        setContact(defualtContactFormData);
+        const data = await response.json();
+        console.log(data);
+        alert("Message send successfully")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    // console.log(contact);
   };
 
-//  Help me reach 1 Million subs 👉 https://youtube.com/thapatechnical
+  //  Help me reach 1 Million subs 👉 https://youtube.com/thapatechnical
 
   return (
     <>
@@ -83,7 +112,7 @@ export const Contact = () => {
               </div>
 
               <div>
-                <button type="submit">submit</button>
+                <button className="btn secondary-btn" type="submit">submit</button>
               </div>
             </form>
           </section>
@@ -98,7 +127,7 @@ export const Contact = () => {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe> */}
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.191060357836!2d72.75490367505147!3d21.144793483783552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04ddd12bcd12b%3A0x2038ff3f44cfd4d5!2sVR%20SURAT!5e0!3m2!1sen!2sin!4v1706868748323!5m2!1sen!2sin" width="100%" height="450"  allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.191060357836!2d72.75490367505147!3d21.144793483783552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04ddd12bcd12b%3A0x2038ff3f44cfd4d5!2sVR%20SURAT!5e0!3m2!1sen!2sin!4v1706868748323!5m2!1sen!2sin" width="100%" height="450" allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </section>
       </section>
     </>
