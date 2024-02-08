@@ -10,7 +10,7 @@ export const AdminUsers = () => {
 
     const getAllUsersData = async () => {
         try {
-            const response = await fetch("http://localhost:9000/api/admin/users", {
+            const response = await fetch("http://localhost:9000/apidmi/an/users", {
                 method: "GET",
                 headers: {
                     Authorization: authorizationtoken,

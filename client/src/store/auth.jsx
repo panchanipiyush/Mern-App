@@ -66,6 +66,7 @@ export const AuthProvider = ({ children }) => {
             console.log(`server fronted error: ${error}`);
         }
     }
+    
     useEffect(() => {
         getServices();
         userAuthentication();
