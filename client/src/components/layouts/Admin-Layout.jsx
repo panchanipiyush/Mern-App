@@ -18,8 +18,8 @@ export const AdminLayout = ()=>{
 
     return (
     <>
-    <header>
-        <div className="container">
+    <header style={{height:"73vh"}}>
+        <div className="container" >
             <nav>
                 <ul>
                     <li><NavLink to="/admin/users"><FaUser /> users</NavLink></li>

@@ -14,7 +14,9 @@ export const Register = () => {
 
 
   const navigate = useNavigate();
+  
   const { storeTokenInLS } = useAuth();
+  
   //  handling the input value
   const handleInput = (e) => {
     let name = e.target.name;

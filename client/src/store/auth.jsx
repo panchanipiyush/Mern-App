@@ -25,7 +25,6 @@ export const AuthProvider = ({ children }) => {
         return localStorage.removeItem("token");
     }
 
-
     // jwt authentication to get currently loggedin user data
     const userAuthentication = async () => {
         try {
@@ -51,7 +50,6 @@ export const AuthProvider = ({ children }) => {
     }
 
     // to fatch the srivices data from yhe databse
-
     const getServices = async () => {
         try {
             const response = await fetch("http://localhost:9000/api/data/service", {
@@ -66,7 +64,7 @@ export const AuthProvider = ({ children }) => {
             console.log(`server fronted error: ${error}`);
         }
     }
-    
+
     useEffect(() => {
         getServices();
         userAuthentication();
