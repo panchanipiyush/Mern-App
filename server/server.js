@@ -5,15 +5,11 @@ const cors = require("cors")
 
 const app = express(); 
 
-
 const authRouter = require("./router/auth-router")
 const contactRouter = require("./router/contact-router")
 const serviceRouter = require("./router/service-router")
 const adminRouter = require("./router/admin-router")
 const connectDb = require("./util/db")
-
-
-
 
 const errorMiddleware = require("./middlewares/error-middleware")
 
@@ -30,7 +26,6 @@ app.use(express.json())
 app.use("/api/auth",authRouter)
 app.use("/api/form",contactRouter);
 app.use("/api/data",serviceRouter)
-
 // lets define admin route
 app.use("/api/admin",adminRouter)
 

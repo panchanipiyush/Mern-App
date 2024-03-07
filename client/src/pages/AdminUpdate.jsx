@@ -13,6 +13,7 @@ export const AdminUpdate = () => {
     });
 
     const params = useParams();
+
     const { authorizationtoken } = useAuth();
     // get SingleUser Data 
 
@@ -26,11 +27,7 @@ export const AdminUpdate = () => {
             })
             const data = await response.json();
             // console.log(`users single data: ${data}`);
-
             setData(data.data)
-            // if (response.ok) {
-            //     getAllUsersData();
-            // }
         } catch (error) {
             console.log(error);
         }
@@ -39,7 +36,6 @@ export const AdminUpdate = () => {
     useEffect(() => {
         getSingleUserData();
     }, []);
-
 
     // to update the data dynamically.
     const handleSubmit = async (e) => {
@@ -56,7 +52,6 @@ export const AdminUpdate = () => {
                     body: JSON.stringify(data)
                 },
             );
-
             if (response.ok) {
                 toast.success("Updated successful");
             } else {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth"
 import { toast } from "react-toastify"
-const URL = "http://localhost:9000/api/auth/login"
+// const URL = "http://localhost:9000/api/auth/login"
 
 export const Login = () => {
 
@@ -22,15 +22,13 @@ export const Login = () => {
 
     setUser({
       ...user, [name]: value,
-
     })
   }
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(URL, {
+      const response = await fetch("http://localhost:9000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +37,7 @@ export const Login = () => {
       });
 
       const res_data = await response.json();
-
+          
       if (response.ok) {
         // alert("Login Successful")
         // const res_data = await response.json();

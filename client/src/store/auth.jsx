@@ -70,8 +70,6 @@ export const AuthProvider = ({ children }) => {
         userAuthentication();
     }, []);
 
-
-
     return <AuthContext.Provider 
     value={{ 
         isLoggedin, 

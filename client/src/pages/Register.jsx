@@ -42,7 +42,7 @@ export const Register = () => {
       });
 
       const res_data = await response.json();
-      console.log("res from server", res_data.message);
+      // console.log("res from server", res_data.message);
       if (response.ok) {
         // const res_data = response.json();
       

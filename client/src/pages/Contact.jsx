@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 
 const defualtContactFormData = {
@@ -45,8 +46,9 @@ export const Contact = () => {
       if(response.ok){
         setContact(defualtContactFormData);
         const data = await response.json();
-        console.log(data);
-        alert("Message send successfully")
+        // console.log(data);
+        // alert("Message send successfully")
+        toast.success("Message send successfully");
       }
     } catch (error) {
       console.log(error);
